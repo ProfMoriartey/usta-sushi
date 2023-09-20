@@ -7,7 +7,7 @@ import Link from "next/link";
 const Banner = () => {
   return (
     <section>
-      <div className="mt-28 flex flex-col items-center justify-between sm:mt-0">
+      <div className="mt-20 flex flex-col items-center justify-between sm:mt-0">
         <Image
           src={"/pic5.png"}
           alt={""}
@@ -15,7 +15,7 @@ const Banner = () => {
           height={600}
           className=""
         />
-        <button className="rounded-md border border-[#f99b90] bg-[#fd4543] px-4 py-2 font-mono text-[13px] text-xl font-bold text-[#fbe9df] sm:hidden ">
+        <button className="rounded-md border border-[#f99b90] bg-[#fd4543] px-4 py-2 font-mono text-[13px] text-xl font-bold text-[#f6faf4] sm:hidden ">
           <Link
             href={"https://www.instagram.com/ustasushi/"}
             target="_blank"

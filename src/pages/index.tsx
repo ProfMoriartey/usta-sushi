@@ -1,7 +1,4 @@
-import { Button } from "@/components/ui/button";
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
 
 import { api } from "~/utils/api";
 import Banner from "~/components/Banner";
@@ -9,7 +6,7 @@ import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
 
 export default function Home() {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   return (
     <>

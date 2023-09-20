@@ -1,6 +1,5 @@
 import React from "react";
-import { SlSocialLinkedin, SlSocialInstagram } from "react-icons/sl";
-import { TbBrandGithub } from "react-icons/tb";
+import { SlSocialInstagram } from "react-icons/sl";
 
 const Footer = () => {
   return (

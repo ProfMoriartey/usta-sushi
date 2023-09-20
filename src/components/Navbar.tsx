@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 const Navbar = () => {
   return (
@@ -21,11 +20,11 @@ const Navbar = () => {
         </div>
         <div className="mdl:inline-flex flex flex-row items-center gap-7 pr-10">
           {" "}
-          <a href="/Menu">
+          <Link href="/Menu">
             <button className="text-l mt-3 rounded-md border border-[#f99b90] bg-[#fd4543] px-4 py-2 text-[13px] text-[#2c1c1c] duration-300 hover:bg-[#f99b90]">
               Menu
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

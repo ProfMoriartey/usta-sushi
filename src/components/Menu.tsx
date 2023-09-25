@@ -72,7 +72,7 @@ const Menu: FC<MenuProps> = ({ selectedTime, addToCart }) => {
                   </p>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
-                  {menuItem.price.toFixed(2)}TL
+                  ${menuItem.price.toFixed(2)}
                 </p>
               </div>
 

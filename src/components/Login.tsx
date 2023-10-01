@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useState, type ChangeEvent, type FC } from "react";
 import { HiLockClosed } from "react-icons/hi";
 import { api } from "../utils/api";
+import Image from "next/image"
 
 const Login: FC = () => {
   const router = useRouter();
@@ -26,7 +27,7 @@ const Login: FC = () => {
       <div className="w-full max-w-md space-y-8">
         <div>
           {/* If this was a real login screen, you'd want a next/image here */}
-          <img
+          <Image
             className="mx-auto h-12 w-auto"
             src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
             alt="Workflow"

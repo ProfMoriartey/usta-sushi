@@ -5,7 +5,8 @@ import { SignJWT } from "jose";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import { getJwtSecretKey } from "../../../lib/auth";
-import { publicProcedure, createTRPCRouter, adminProcedure } from "../trpc";
+import { publicProcedure, createTRPCRouter } from "../trpc";
+// import { publicProcedure, createTRPCRouter, adminProcedure } from "../trpc";
 import { MAX_FILE_SIZE } from "~/constants/config";
 
 export const adminRouter = createTRPCRouter({
@@ -49,7 +50,6 @@ export const adminRouter = createTRPCRouter({
       const id = nanoid();
       const ex = input.fileType.split("/")[1];
       const key = `${id}.${ex}`;
-
       const { url, fields } = (await new Promise((resolve, reject) => {
         s3.createPresignedPost(
           {

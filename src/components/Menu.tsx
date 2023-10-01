@@ -64,13 +64,13 @@ const Menu: FC<MenuProps> = ({ selectedTime, addToCart }) => {
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <h3 className="text-sm text-gray-700">
+                  <h3 className="text-sm font-medium text-gray-900text-sm text-gray-700">
                     <p>{menuItem.name}</p>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
                     {menuItem.categories.map((c) => capitalize(c)).join(", ")}
                   </p>
-                  <p className="text-sm font-medium text-gray-900">
+                  <p className="text-sm text-gray-700">
                   {menuItem.description}
                 </p>
                 </div>

@@ -12,6 +12,7 @@ const DynamicSelect = dynamic(() => import("react-select"), { ssr: false });
 interface Input {
   name: string;
   price: number;
+  description: string;
   categories: MultiValue<{ value: string; label: string }>;
   file: undefined | File;
 }
@@ -19,6 +20,7 @@ interface Input {
 const initialInput = {
   name: "",
   price: 0,
+  description:"",
   categories: [],
   file: undefined,
 };
@@ -91,9 +93,10 @@ const Menu: FC = () => {
       imageKey: key,
       name: input.name,
       categories: input.categories.map(
-        (c) => c.value as Exclude<Categories, "all">,
+        (c) => c.value as Exclude<Categories, "Hepsi">,
       ),
       price: input.price,
+      description: input.description,
     });
 
     refetch();
@@ -131,6 +134,15 @@ const Menu: FC = () => {
               setInput((prev) => ({ ...prev, price: Number(e.target.value) }))
             }
             value={input.price}
+          />
+
+          <input
+            name="description"
+            className="h-12 rounded-sm border-none bg-gray-200"
+            type="text"
+            placeholder="description"
+            onChange={handleTextChange}
+            value={input.description}
           />
 
           <DynamicSelect

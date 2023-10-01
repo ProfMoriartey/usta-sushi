@@ -77,6 +77,7 @@ export const adminRouter = createTRPCRouter({
         imageKey: z.string(),
         name: z.string(),
         price: z.number(),
+        description: z.string(),
         categories: z.array(
           z.union([
             z.literal("Makiler"),
@@ -90,13 +91,14 @@ export const adminRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      const { imageKey, name, categories, price } = input;
+      const { imageKey, name, categories, price, description } = input;
       const menuItem = await ctx.db.menuItem.create({
         data: {
           imageKey,
           name,
           categories,
           price,
+          description
         },
       });
 

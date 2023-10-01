@@ -35,16 +35,16 @@ const Menu: FC<MenuProps> = ({ selectedTime, addToCart }) => {
               className="cursor-pointer"
               onClick={() => router.push("/")}
             />
-            On our menu
+            Menümüzde:
             {/* for {format(parseISO(selectedTime), "MMM do, yyyy")} */}
           </h2>
           <Select
             onChange={(e) => {
-              if (e?.value === "all") setFilter(undefined);
+              if (e?.value === "Hepsi") setFilter(undefined);
               else setFilter(e?.value);
             }}
-            className="border-none outline-none"
-            placeholder="Filter by..."
+            className="border-none outline-none sm:w-[20rem]"
+            placeholder="Filtre..."
             options={selectOptions}
           />
         </div>
@@ -70,10 +70,15 @@ const Menu: FC<MenuProps> = ({ selectedTime, addToCart }) => {
                   <p className="mt-1 text-sm text-gray-500">
                     {menuItem.categories.map((c) => capitalize(c)).join(", ")}
                   </p>
+                  <p className="text-sm font-medium text-gray-900">
+                  {menuItem.description}
+                </p>
                 </div>
+                
                 <p className="text-sm font-medium text-gray-900">
                   {menuItem.price.toFixed(2)} TL
                 </p>
+                
               </div>
 
               {/* <Button

@@ -79,9 +79,12 @@ export const adminRouter = createTRPCRouter({
         price: z.number(),
         categories: z.array(
           z.union([
-            z.literal("breakfast"),
-            z.literal("lunch"),
-            z.literal("dinner"),
+            z.literal("Makiler"),
+            z.literal("Uramakiler"),
+            z.literal("Veganlar"),
+            z.literal("Vejetaryenler"),
+            z.literal("Specials"),
+            z.literal("Setler"),
           ]),
         ),
       }),

@@ -21,19 +21,19 @@ const Navbar = () => {
         </div>
         <div className="mdl:inline-flex mt-5 flex flex-row items-center gap-7 pr-10">
           {" "}
+          <Link href="/menu">
+            <button className="invisible rounded-md border border-[#f99b90] bg-[#fd4543] px-4 py-2 font-mono text-[13px] text-xl font-bold text-[#f6faf4] duration-300 hover:-translate-y-2 sm:visible">
+              Menu
+            </button>
+          </Link>
           <div className="">
             <Link href="https://www.instagram.com/ustasushi/" target="_blank">
               <SlSocialInstagram
                 size={40}
-                className="invisible transition-all duration-300 hover:-translate-y-2 sm:visible"
+                className="transition-all duration-300 hover:-translate-y-2"
               />
             </Link>
           </div>
-          <Link href="/menu">
-            <button className="rounded-md border border-[#f99b90] bg-[#fd4543] px-4 py-2 font-mono text-[13px] text-xl font-bold text-[#f6faf4] duration-300 hover:-translate-y-2">
-              Menu
-            </button>
-          </Link>
         </div>
       </div>
     </section>

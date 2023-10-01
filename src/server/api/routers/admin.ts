@@ -5,12 +5,12 @@ import { SignJWT } from "jose";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import { getJwtSecretKey } from "../../../lib/auth";
-import { publicProcedure, createTRPCRouter, adminProcedure } from "../trpc";
+import { publicProcedure, createTRPCRouter} from "../trpc";
 // import { publicProcedure, createTRPCRouter, adminProcedure } from "../trpc";
 import { MAX_FILE_SIZE } from "~/constants/config";
 
 export const adminRouter = createTRPCRouter({
-  login: adminProcedure
+  login: publicProcedure
     .input(z.object({ email: z.string().email(), password: z.string() }))
     .mutation(async ({ input, ctx }) => {
       const { res } = ctx;
@@ -44,7 +44,7 @@ export const adminRouter = createTRPCRouter({
       });
     }),
 
-  createPresignedUrl: adminProcedure
+  createPresignedUrl: publicProcedure
     .input(z.object({ fileType: z.string() }))
     .mutation(async ({ input }) => {
       const id = nanoid();
@@ -71,7 +71,7 @@ export const adminRouter = createTRPCRouter({
       return { url, fields, key };
     }),
 
-  addMenuItem: adminProcedure
+  addMenuItem: publicProcedure
     .input(
       z.object({
         imageKey: z.string(),
@@ -103,7 +103,7 @@ export const adminRouter = createTRPCRouter({
       return menuItem;
     }),
 
-  deleteMenuItem: adminProcedure
+  deleteMenuItem: publicProcedure
     .input(z.object({ imageKey: z.string(), id: z.string() }))
     .mutation(async ({ input, ctx }) => {
       // Delete image from s3

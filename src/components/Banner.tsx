@@ -28,12 +28,14 @@ const Banner = () => {
           </Link>
         </div>
 
-        <span className="h-5"></span>
         <Link href="/menu">
-          <button className="w-32 rounded-md border border-[#f99b90] bg-[#fd4543] px-4 py-2 font-mono text-[13px] text-xl font-bold text-[#f6faf4] duration-300 hover:-translate-y-2 sm:hidden">
+          <button className="my-4 w-32 rounded-md border border-[#f99b90] bg-[#fd4543] px-4 py-2 font-mono text-[13px] text-xl font-bold text-[#f6faf4] duration-300 hover:-translate-y-2 sm:hidden">
             Menu
           </button>
         </Link>
+        <h3 className="my-2 sm:my-0 sm:font-bold">
+          *Tüm siparişler instagramdan verilmektedir.
+        </h3>
       </div>
     </section>
   );

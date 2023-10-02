@@ -7,6 +7,8 @@ import { HiArrowLeft } from "react-icons/hi";
 import Select from "react-select";
 import { capitalize, selectOptions } from "src/utils/helper";
 import { api } from "src/utils/api";
+import { Link } from "lucide-react";
+import { SlSocialInstagram } from "react-icons/sl";
 
 interface MenuProps {
   selectedTime: string; // as ISO string
@@ -28,31 +30,45 @@ const Menu: FC<MenuProps> = ({ selectedTime, addToCart }) => {
 
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:py-24 lg:max-w-full">
-        <div className="flex w-full justify-between">
-          <h2 className="flex items-center gap-4 text-2xl font-bold tracking-tight text-gray-900">
-            <HiArrowLeft
-              className="cursor-pointer"
-              onClick={() => router.push("/")}
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:py-10 lg:max-w-full">
+        <div className="flex w-full flex-col justify-between ">
+          <div className="sm:flex sm:flex-row sm:justify-between">
+            <h2 className="flex items-center gap-4 text-2xl font-bold tracking-tight text-gray-900">
+              <HiArrowLeft
+                className="cursor-pointer"
+                onClick={() => router.push("/")}
+              />
+              Menümüzde:
+              {/* for {format(parseISO(selectedTime), "MMM do, yyyy")} */}
+            </h2>
+
+            <Select
+              onChange={(e) => {
+                if (e?.value === "Hepsi") setFilter(undefined);
+                else setFilter(e?.value);
+              }}
+              className="border-none outline-none sm:w-[20rem]"
+              placeholder="Filtre..."
+              options={selectOptions}
             />
-            Menümüzde:
-            {/* for {format(parseISO(selectedTime), "MMM do, yyyy")} */}
-          </h2>
-          <Select
-            onChange={(e) => {
-              if (e?.value === "Hepsi") setFilter(undefined);
-              else setFilter(e?.value);
-            }}
-            className="border-none outline-none sm:w-[20rem]"
-            placeholder="Filtre..."
-            options={selectOptions}
-          />
+          </div>
+          <h3 className="mt-2 flex flex-row px-4">
+            *Tüm siparişler instagramdan verilmektedir.{" "}
+            <span>
+              <a href="https://www.instagram.com/ustasushi/" target="_blank">
+                <SlSocialInstagram
+                  size={20}
+                  className="ml-2 transition-all duration-300 hover:-translate-y-2"
+                />
+              </a>
+            </span>
+          </h3>
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {filteredMenuItems?.map((menuItem) => (
             <div key={menuItem.id} className="group relative">
-              <div className="min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 hover:opacity-75 h-40 sm:h-80">
+              <div className="min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none h-40 w-full overflow-hidden rounded-md bg-gray-200 hover:opacity-75 sm:h-80">
                 <div className="relative h-full w-full object-cover object-center lg:h-full lg:w-full">
                   <Image
                     src={menuItem.url}
@@ -71,14 +87,13 @@ const Menu: FC<MenuProps> = ({ selectedTime, addToCart }) => {
                     {menuItem.categories.map((c) => capitalize(c)).join(", ")}
                   </p>
                   <p className="text-sm font-medium text-gray-900">
-                  {menuItem.description}
-                </p>
+                    {menuItem.description}
+                  </p>
                 </div>
-                
+
                 <p className="text-sm font-medium text-gray-900">
                   {menuItem.price.toFixed(2)} TL
                 </p>
-                
               </div>
 
               {/* <Button
